@@ -25,4 +25,16 @@ public class cliente {
         this.dataDeNascimento = dados.dataDeNascimento();
         this.cep = dados.cep();
     }
+
+    public void atualizarInformacoes(AtualizacaoCliente dados) {
+        if (dados.cep() != null) {
+            this.cep = dados.cep();
+        }
+        if (dados.dataDeNascimento() != null) {
+            this.dataDeNascimento = dados.dataDeNascimento();
+        }
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+    }
 }
