@@ -38,4 +38,10 @@ public class clienteController {
         var cliente = repository.getReferenceById(dados.cpf());
         cliente.atualizarInformacoes(dados);
     }
+
+    @DeleteMapping("/{cpf}")
+    @Transactional
+    public void excluir(@PathVariable Long cpf) {
+        repository.deleteById(cpf);
+    }
 }
