@@ -4,6 +4,7 @@ import acelera.devs.pablo.api.model.cliente.CadastroCliente;
 import acelera.devs.pablo.api.model.cliente.cliente;
 import acelera.devs.pablo.api.model.cliente.clienteRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class clienteController {
 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody CadastroCliente dados) {
+    public void cadastrar(@RequestBody @Valid CadastroCliente dados) {
         repository.save(new cliente(dados));
     }
 }

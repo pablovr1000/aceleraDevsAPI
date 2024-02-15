@@ -1,4 +1,17 @@
 package acelera.devs.pablo.api.model.cliente;
 
-public record CadastroCliente(String nome, String dataDeNascimento, String cpf, String cep) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
+public record CadastroCliente(
+        @NotBlank
+        String nome,
+        @NotBlank
+        String dataDeNascimento,
+        @NotNull
+        Long cpf,
+        @NotBlank
+        @Pattern(regexp = "\\d{8}")
+        String cep) {
 }

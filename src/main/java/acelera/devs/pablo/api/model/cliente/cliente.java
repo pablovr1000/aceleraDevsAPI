@@ -14,13 +14,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class cliente {
     @Id
-    private String cpf;
+    private Long cpf;
     private String nome;
     private String dataDeNascimento;
     private String cep;
 
     public cliente(CadastroCliente dados) {
-        this.cpf = dados.cpf();
+        this.cpf = Long.valueOf(dados.cpf());
         this.nome = dados.nome();
         this.dataDeNascimento = dados.dataDeNascimento();
         this.cep = dados.cep();
