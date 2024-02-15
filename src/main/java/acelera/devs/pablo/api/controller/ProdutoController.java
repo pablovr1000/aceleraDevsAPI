@@ -30,7 +30,7 @@ public class ProdutoController {
     }
 
     @PostMapping
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid CadastroProduto dados, UriComponentsBuilder uriBuilder) {
         var produto = new Produto(dados);
         repository.save(produto);
