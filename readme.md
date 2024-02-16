@@ -116,7 +116,7 @@ Separei as sessões em 5 rotas principais e em cada uma delas suas respectivas n
 |-----------------------|--------------|-------------------------------------------------------------|
 | /relatorio/{cpf}      | GET          | Utilizado para emitir um relatório de compras por CPF       |
 | /relatorio/{ano}{mes} | GET          | Utilizado para emitir um relatório de compras por ano e mês |
-<br></details>
+<br></details></p>
 
 <p align="right"><a href="#top">Voltar ao topo</a></p>
 
@@ -157,6 +157,7 @@ $ git clone git@github.com:pablovr1000/aceleraDevsAPI.git
 
 </p>
 </details>
+</p>
 </details>
 
 <br>
@@ -168,6 +169,7 @@ $ git clone git@github.com:pablovr1000/aceleraDevsAPI.git
 
 </p>
 </details>
+</p>
 </details>
 
 <p align="right"><a href="#top">Voltar ao topo</a></p>
