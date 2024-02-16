@@ -29,10 +29,19 @@ Este projeto é desenvolvido na linguagem de programação JAVA
 <details><summary>Decisões durante o desenvolvimento do projeto</summary>
 <p>
 
-Este projeto tem como intuito a utilização das seguintes tecnologias e conhecimentos vistos no programa.
+Boa Parte do projeto foi desenvolvido utilizando a biblioteca Lombok para auxiliar e agilizar o desenvolvimento das classes Java.
+
+Utilizei também a biblioteca Flyway para gerenciar a comunicação com banco de dados e o gerenciamento das migrations. 
+
+Neste projeto foi utilizado das seguintes tecnologias.
 * Java
-* JUnit
-* Swagger
+* JPA
+* MySql
+* Springboot
+* Maven
+* Poi Apache
+* Lombok
+* Flyway
 
 
 </p>
@@ -52,54 +61,61 @@ Este projeto tem como intuito a utilização das seguintes tecnologias e conheci
 
 <br>
 
-Como dito já no início das descrição dos requisitos do Projeto, este é composto por 4 seções principais:
-1.	User e Login
-2.	Times (Team’s)
-3.	Partidas (Match’s)
-4.	Placar (Leaderboard)
+Como dito já no início da descrição dos requisitos do Projeto, este é composto por 5 seções principais:
+1.	Cliente
+2.	Produto
+3.	Entrada
+4.	Venda
+5.  Relatórios
 
-Separei as sessões em 4 rotas principais e em cada uma delas suas respectivas necessidades, a baixo temos uma tabela para exemplificar
-
-<br>
-
-<h3>User</h3>
-
-| Endpoint | Métodos HTTP | Descrição |
-|---|---|---|
-| /login | GET | Usado para logar um usuário, retorna um token |
-| /login/validate | POST | Valida o token recebido no Head |
+Separei as sessões em 5 rotas principais e em cada uma delas suas respectivas necessidades, a baixo temos uma tabela para exemplificar
 
 <br>
 
-<h3>Times</h3>
+<h3>Cliente</h3>
 
-| Endpoint | Métodos HTTP | Descrição |
-|---|---|---|
-| /teams | GET | Retorna um Array com todos os times |
-| /teams/:id | GET | Retorna os dados de um time com base no id |
-
-<br>
-
-<h3>Partidas</h3>
-
-| Endpoint | Métodos HTTP | Descrição |
-|---|---|---|
-| /matches | GET | Retorna um Array com todas as partidas |
-| /matches/:id | GET | Retorna os dados de uma partida com base no id |
-| /matches/ | POST | Registra uma nova partida com os dados inseridos |
-| /matches/ | PATCH | Atualizar uma partida com os dados inseridos |
-| /matches/:id | PATCH | Atualizar o status de uma partida em andamento para finalizada |
+| Endpoint       | Métodos HTTP | Descrição                              |
+|----------------|--------------|----------------------------------------|
+| /cliente       | POST         | Utilizado para cadastrar um cliente    |
+| /cliente       | GET          | Retorna lista de clientes              |
+| /cliente/{cpf} | GET          | Retorna os dados do cliente específico |
+| /cliente       | PUT          | Altera um cliente a partir do seu CPF  |
+| /cliente{cpf}  | DELETE       | Efetua um delete do cliente            |
 
 <br>
 
-<h3>Tabela de classificação</h3>
+<h3>Produto</h3>
 
-| Endpoint | Métodos HTTP | Descrição |
-|---|---|---|
-| /leaderboard | GET | Retorna um Array com todos os times da tabela de classificação |
-| /leaderboard/away | GET | Retorna um Array com os times da tabela de classificação que jogaram fora do próprio Estádio |
-| /leaderboard/home | GET | Retorna um Array com os times da tabela de classificação que jogaram no próprio Estádio  |
+| Endpoint      | Métodos HTTP | Descrição                              |
+|---------------|--------------|----------------------------------------|
+| /produto      | POST         | Utilizado para cadastrar um produto    |
+| /produto      | GET          | Retorna lista de produto               |
+| /produto/{id} | GET          | Retorna os dados do produto específico |
+| /produto      | PUT          | Altera um produto a partir do seu ID   |
+| /produto/{id} | DELETE       | Efetua um delete do produto            |
 
+<br>
+
+<h3>Entrada</h3>
+
+| Endpoint      | Métodos HTTP | Descrição                                                               |
+|---------------|--------------|-------------------------------------------------------------------------|
+| /entrada/{id} | POST         | Utilizado para cadastrar uma venda de um produto a partir do seu código |
+
+<br>
+
+<h3>Vendas</h3>
+
+| Endpoint     | Métodos HTTP | Descrição                                                                                         |
+|--------------|--------------|---------------------------------------------------------------------------------------------------|
+| /vendas/xlsx | POST         | Utilizado para registrar um arquivo em Excel (xlsx) e cadastrar os campos em uma tabela de vendas |
+
+<h3>Relatórios</h3>
+
+| Endpoint              | Métodos HTTP | Descrição                                                   |
+|-----------------------|--------------|-------------------------------------------------------------|
+| /relatorio/{cpf}      | GET          | Utilizado para emitir um relatório de compras por CPF       |
+| /relatorio/{ano}{mes} | GET          | Utilizado para emitir um relatório de compras por ano e mês |
 <br></details>
 
 <p align="right"><a href="#top">Voltar ao topo</a></p>
@@ -121,35 +137,26 @@ Separei as sessões em 4 rotas principais e em cada uma delas suas respectivas n
 <br>
  Na sua máquina você deve ter:
 
-- Sistema Operacional Distribuição Unix
-- Node versão 16
-- Docker
-- Docker-compose versão >=1.29.2
+- Git
+- Java Versão 17
+- MySQL
 
-<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a>, <a href="https://docs.docker.com/desktop/">Docker</a> e <a href="https://docs.docker.com/compose/install/">docker-compose</a>
+<a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a>, <a href="https://www.java.com/pt-BR/download/ie_manual.jsp">Java</a> e <a href="https://dev.mysql.com/downloads/installer/">MySQL</a>
 
 <br>
 
 ```bash
-# Faça o clone do repositório e entre na pasta do projeto:
-$ git clone git@github.com:pablovr1000/projeto-trybe-futebol-clube.git && cd projeto-trybe-futebol-clube
+# Faça o clone do repositório:
+$ git clone git@github.com:pablovr1000/aceleraDevsAPI.git
  
-# Renomeie o arquivo .env.example para .env e edite-o colocando os dados de acesso do seu MySQL Local:
-$ mv app/backend/.env.example app/backend/.env
+# Edite o arquivo application.properties colocando os dados de acesso do seu MySQL Local e o nome do seu Banco de Dados:
  
-# Instale as dependências do projeto e **suas aplicações (front e back)**:
-$ npm install
- 
-# Você pode **subir ou descer uma aplicação do compose**, utilizando os comandos abaixo:
-$ npm run compose:up
-$ npm run compose:down
-
+# Utilize a IDE de sua preferência, sugestão é utilizar o IntelliJ
 ```
+<a href="https://www.jetbrains.com/pt-br/idea/download">IntelliJ</a>
 
 </p>
 </details>
-
-</p>
 </details>
 
 <br>
@@ -157,23 +164,10 @@ $ npm run compose:down
 <details><summary>Como interagir com o projeto</summary>
 <p>
 
-<details><summary>Utilizando Postman ou insomnia</summary>
-<p>
-
- -
+ - Na pasta raiz do projeto, importe o arquivo AceleraDevsPabloAPI.postman_collection.Json em seu Postman
 
 </p>
 </details>
-
-<details><summary>Utilizando interface front-end</summary>
-<p>
-
- - 
-
-</p>
-</details>
-
-</p>
 </details>
 
 <p align="right"><a href="#top">Voltar ao topo</a></p>
