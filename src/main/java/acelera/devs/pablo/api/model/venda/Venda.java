@@ -12,7 +12,7 @@ import lombok.Setter;
 import java.util.Date;
 
 @Table(name = "vendas")
-@Entity(name = "entrada")
+@Entity(name = "venda")
 @Getter
 @Setter
 @NoArgsConstructor
