@@ -116,7 +116,9 @@ Separei as sessões em 5 rotas principais e em cada uma delas suas respectivas n
 |-----------------------|--------------|-------------------------------------------------------------|
 | /relatorio/{cpf}      | GET          | Utilizado para emitir um relatório de compras por CPF       |
 | /relatorio/{ano}{mes} | GET          | Utilizado para emitir um relatório de compras por ano e mês |
-<br></details></p>
+<br>
+</p>
+</details>
 
 <p align="right"><a href="#top">Voltar ao topo</a></p>
 
@@ -167,8 +169,6 @@ $ git clone git@github.com:pablovr1000/aceleraDevsAPI.git
 
  - Na pasta raiz do projeto, importe o arquivo AceleraDevsPabloAPI.postman_collection.Json em seu Postman
 
-</p>
-</details>
 </p>
 </details>
 
