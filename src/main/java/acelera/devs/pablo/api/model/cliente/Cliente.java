@@ -5,21 +5,19 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Table(name = "clientes")
-@Entity(name = "cliente")
+@Entity(name = "Cliente")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class cliente {
+public class Cliente {
     @Id
     private Long cpf;
     private String nome;
     private String dataDeNascimento;
     private String cep;
 
-    public cliente(CadastroCliente dados) {
+    public Cliente(CadastroCliente dados) {
         this.cpf = Long.valueOf(dados.cpf());
         this.nome = dados.nome();
         this.dataDeNascimento = dados.dataDeNascimento();

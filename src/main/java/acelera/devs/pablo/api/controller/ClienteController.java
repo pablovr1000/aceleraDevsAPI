@@ -11,14 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/cliente")
-public class clienteController {
+@RequestMapping("/Cliente")
+public class ClienteController {
 
     @Autowired
-    private clienteRepository repository;
+    private ClienteRepository repository;
 
     @GetMapping
     public ResponseEntity<Page<DetalhamentoCliente>> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
@@ -35,7 +33,7 @@ public class clienteController {
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid CadastroCliente dados, UriComponentsBuilder uriBuilder) {
-        var cliente = new cliente(dados);
+        var cliente = new Cliente(dados);
         repository.save(cliente);
 
         var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(dados.cpf()).toUri();
